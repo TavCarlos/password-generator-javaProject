@@ -12,8 +12,11 @@ public class PasswordGeneratorApp {
 			Scanner teclado = new Scanner(System.in);
 			PasswordGenerator passwordGenerator;
 			
+			System.out.println("WELCOME TO THE PASSWORD-GENERATOR!");
+			
+			
 			boolean shouldCustomize = UserInputCustomization.readBooleanInput(teclado, 
-					"Would you like to customize your password? (TRUE / FALSE)");
+					"Would you like to customize your password? (YES / NO)");
 			
 			if(!shouldCustomize) {
 				 passwordGenerator = new PasswordGenerator();

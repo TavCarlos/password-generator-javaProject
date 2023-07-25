@@ -12,13 +12,13 @@ public class UserInputCustomization {
 	public static PasswordGenerator customizePassword(Scanner scanner) {
 		int passwordLength = readPasswordLenght(scanner);
 		boolean includeNumbers = readBooleanInput(scanner,
-				"Would you like Numbers? (TRUE / FALSE)");
+				"Would you like to include Numbers? (YES / NO)");
 		boolean includeLowerCase = readBooleanInput(scanner,
-				"Would you like Lower Case Characters? (TRUE / FALSE)");
+				"Would you like to include Lower Case Characters? (YES / NO)");
 		boolean includeCapitalCase = readBooleanInput(scanner,
-				"Would you like Capital Case Characters? (TRUE / FALSE)");
+				"Would you like to include Capital Case Characters? (YES / NO)");
 		boolean includeSpecialChar = readBooleanInput(scanner, 
-				"Would you like Special Characters? (TRUE / FALSE)");
+				"Would you like to include Special Characters? (YES / NO)");
 			
 		validateOptions(includeNumbers, includeLowerCase, includeCapitalCase, includeSpecialChar);
 			
@@ -31,7 +31,7 @@ public class UserInputCustomization {
 			int passwordLength;
 			
 			 do {
-			       System.out.println("What password length would you like? (MINIMUM: 8)");
+			       System.out.println("Please enter the desired password length (MINIMUM: 8):");
 			       try {
 			            passwordLength = scanner.nextInt();
 			            if (passwordLength < 8) {
@@ -53,16 +53,19 @@ public class UserInputCustomization {
 			
 			do {
 				System.out.println(message);
-				try {
-					includeBoolean = scanner.nextBoolean();
+				String userInput = scanner.nextLine();
+				if("yes".equalsIgnoreCase(userInput)) {
+					includeBoolean = true;
+				} else if("no".equalsIgnoreCase(userInput)) {
+					includeBoolean = false;
 					break;
-				} catch(InputMismatchException e) {
-					System.out.println("Invalid input. Please enter a valid boolean.");
-					scanner.nextLine();
+				} else {
+					System.out.println("Invalid input. Please enter 'yes' or 'no'.");
 					includeBoolean = false;
 				}
 				
 			} while(!includeBoolean);
+			
 			return includeBoolean;
 		}
 		
@@ -70,7 +73,7 @@ public class UserInputCustomization {
 		private static void validateOptions(boolean includeNumbers,
 				boolean includeLowerCase, boolean includeCapitalCase, boolean includeSpecialChar) {
 			if(!includeNumbers && !includeLowerCase && !includeCapitalCase && !includeSpecialChar) {
-				throw new RuntimeException("At least one option must be 'TRUE'");
+				throw new RuntimeException("At least one option must be selected.");
 			}
 		}
 	}

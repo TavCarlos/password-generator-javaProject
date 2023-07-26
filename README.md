@@ -21,7 +21,7 @@ A preparação do ambiente consiste na instalação do JRE(Java Runtime Environm
 git clone https://github.com/TavCarlos/password-generator-javaProject.git
 
 # Navegar para o diretório do projeto
-cd password-generator
+cd password-generator-javaProject
 
 # Executar o projeto
 java com.passwordGenerator.PasswordGeneratorApp

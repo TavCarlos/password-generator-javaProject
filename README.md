@@ -23,6 +23,12 @@ git clone https://github.com/TavCarlos/password-generator-javaProject.git
 # Navegar para o diretório do projeto
 cd password-generator-javaProject
 
+# Compile os arquivos
+javac com/passwordGenerator/logic/PasswordGenerator.java 
+javac com/passwordGenerator/PasswordGeneratorApp.java 
+javac com/passwordGenerator/input/UserInputCustomization.java
+
+
 # Executar o projeto
 java com.passwordGenerator.PasswordGeneratorApp
 ```
